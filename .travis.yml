@@ -1,0 +1,13 @@
+sudo: required
+services:
+  - docker
+branches:
+  only:
+    - master
+before_install:
+  - docker build -t dream20200716/test:0.0.2
+  - docker login -u $DOCKER_LOGIN -p $DOCKER_PASS
+  - docker push dream20200716/test:0.0.2
+script:
+  - if [ $TRAVIS_BRANCH = "develop" ]; then echo "DEV deploy"; fi
+  - if [ $TRAVIS_BRANCH = "master" ]; then docker ps -a; fi
