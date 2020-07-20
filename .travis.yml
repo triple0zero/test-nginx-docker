@@ -5,10 +5,10 @@ branches:
   only:
     - master
 before_install:
-  - docker build -t dream20200716/test:0.0.2-$TRAVIS_BUILD_NUMBER .
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
-#  - docker push dream20200716/test:0.0.2-$TRAVIS_BUILD_NUMBER
 script:
+  - docker build -t dream20200716/test:0.0.2-$TRAVIS_BUILD_NUMBER .
   - docker push dream20200716/test:0.0.2-$TRAVIS_BUILD_NUMBER
+  - docker logout
 #  - if [ $TRAVIS_BRANCH = "develop" ]; then echo "DEV deploy"; fi
 #  - if [ $TRAVIS_BRANCH = "master" ]; then docker ps -a; fi
