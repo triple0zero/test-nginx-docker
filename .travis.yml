@@ -11,6 +11,7 @@ before_install:
   - export VERSION='0.0.2'
   - export TRAVIS_TAG=$VERSION-$TRAVIS_BUILD_NUMBER
   - git tag $TRAVIS_TAG
+  - git push --tags
 script:
   - docker build -t dream20200716/test:$VERSION-$TRAVIS_BUILD_NUMBER -t dream20200716/test:latest .
   - docker push dream20200716/test:${VERSION}-$TRAVIS_BUILD_NUMBER
