@@ -8,7 +8,7 @@ before_install:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - git config --local user.name $GIT_USER
   - git config --local user.email "triple0zero@gmail.com"
-  - export VERSION = "0.0.2"
+  - export VERSION = ${'0.0.2'}
   - export TRAVIS_TAG=${$VERSION-$TRAVIS_BUILD_NUMBER}
   - git tag $TRAVIS_TAG
 script:
