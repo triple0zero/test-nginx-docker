@@ -9,7 +9,7 @@ before_install:
   - git config --local user.name $GIT_USER
   - git config --local user.email "triple0zero@gmail.com"
   - export VERSION='0.0.2'
-  - export TRAVIS_TAG=${$VERSION-$TRAVIS_BUILD_NUMBER}
+  - export TRAVIS_TAG=$VERSION-$TRAVIS_BUILD_NUMBER
   - git tag $TRAVIS_TAG
 script:
   - docker build -t dream20200716/test:$VERSION-$TRAVIS_BUILD_NUMBER -t dream20200716/test:latest .
